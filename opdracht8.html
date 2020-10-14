@@ -14,15 +14,19 @@
             // Jou instructies volgen hier
             robotArm.moveRight();
            for(r = 1; r < 9; r++){
-               for(y = 1; y <= 8; y++){
                    robotArm.grab();
+                   for(y = 1; y <= 8; y++){
+
                    robotArm.moveRight();
+                   }
+
                    robotArm.drop();
-               }
+
+               
                for(x = 1; x <= 8; x++){
                    robotArm.moveLeft();
                }
-           }
+            }
 
            
             // De door jou opgegeven instructies uitvoeren

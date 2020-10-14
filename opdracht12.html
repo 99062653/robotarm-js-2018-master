@@ -9,10 +9,10 @@
             
             // Het level inladen
             robotArm.loadLevel("exercise 12");
-            robotArm.speed = 500;
+            robotArm.speed = 1000;
             // Jou instructies volgen hier
             var plaats = 1;
-            for (r = 1 ; r <= 12; r++) {
+            for (r = 1 ; r <= 9; r++) {
                 robotArm.moveRight();
                 if (plaats == 1) {
                     robotArm.moveLeft();
