@@ -6,27 +6,37 @@
             // Robotarm bibliotheek inladen
             var canvas = document.getElementById("canvas");
             var robotArm = new RobotArm(canvas);
-            
+
             // Het level inladen
             robotArm.randomLevel( 1, 8);
-            robotArm.speed = 500;
+
             // Jou instructies volgen hier
-            var rechts = 9
-           var links = 9
 
-            for(r = 1; r <= 6; r++){
+            var BLOKJES = 1
+            var maximaal = 6
+
+            for (r = 1 ; r <= maximaal ; r++) {
+
                 robotArm.grab();
-            for(p = 1; p <= rechts; p++)
-                robotArm.moveRight();
-                robotArm.drop();
-            for(y = 1; y <= links; y++)
-                robotArm.moveLeft();
+                robotArm.scan();
 
-                rechts = rechts - 1 
-                links = links - 1
+                if (robotArm.scan() != null) {
 
+                    for (y = 1 ; y <= BLOKJES ; y++)
+                        robotArm.moveRight();
+                        robotArm.drop();
+
+                    for (i = 1 ; i <= BLOKJES ; i++)
+                        robotArm.moveLeft();
+
+                    BLOKJES = BLOKJES + 1
+                }
+
+                else {
+                    maximaal = (maximaal - 6)
+                }
             }
-            
+
             // De door jou opgegeven instructies uitvoeren
             robotArm.run();
         </script>
